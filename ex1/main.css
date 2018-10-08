@@ -1,0 +1,17 @@
+h1{
+  color: blue;
+}
+
+h2{
+  color: red;
+}
+
+.button{
+  height: 50;
+  width: 80px;
+  background-color: blue;
+}
+
+.center{
+  text-align: center;
+}
