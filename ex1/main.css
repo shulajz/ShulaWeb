@@ -1,17 +1,17 @@
-h1 {
+.center {
+  text-align: center;
+}
+
+.center h1 {
   color: blue;
 }
 
-h2 {
+.center h2 {
   color: red;
 }
 
-.button {
+.center .button {
   height: 50px;
   width: 80px;
   background-color: blue;
-}
-
-.center {
-  text-align: center;
 }
