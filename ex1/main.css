@@ -13,5 +13,17 @@
 .center .button {
   height: 50px;
   width: 80px;
-  background-color: #FF6633;
+}
+
+ img {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newButton .centerOfScreen {
+  display: block;
+  margin:0 auto;
+
+  background-color: yellow;
 }
