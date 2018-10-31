@@ -23,7 +23,7 @@ function restartArray() {
 
 }
 
-//A funtion which sets the first color of the button on start
+//A function which sets the first color of the button on start
 document.addEventListener("DOMContentLoaded", function(event) {
   setTheColor(indexOfColor-1);
 });
