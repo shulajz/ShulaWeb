@@ -1,38 +1,42 @@
 
-var indexOfColor = 1;
+const INITIAL_COLOR = 0;
+var indexOfColor = INITIAL_COLOR;
 var colorArray = ['blue', 'red','orange', 'yellow'];
+var color = window.localStorage.getItem("color");
 //A function that changes the color of button on every click
 //If we got to the last color then an image will appear.
 function changeColor() {
-    setTheColor(indexOfColor);
-    var noaImage = document.getElementById("noaIMG");
+    setTheColor();
+    var noaImageElement = document.getElementById("noa-img");
     if(++indexOfColor == colorArray.length){
       indexOfColor = 0;
-      noaImage.style.display = "block";
+      noaImageElement.style.display = "block";
     } else {
-       noaImage.style.display = "none";
+       noaImageElement.style.display = "none";
     }
 }
 
 //A function to start the array colors from the start
 function restartArray() {
   indexOfColor = 0;
-  setTheColor(indexOfColor);
-  document.getElementById("noaIMG").style.display = "none";
+  setTheColor();
+  document.getElementById("noa-img").style.display = "none";
   indexOfColor++;
 
 }
 
 //A function which sets the first color of the button on start
 document.addEventListener("DOMContentLoaded", function(event) {
-  setTheColor(indexOfColor-1);
+  setTheColor();
+  indexOfColor++;
 });
 
 //A function we call from other functions in
 // order to actually set the color of button
-function setTheColor(indexForArray){
+function setTheColor(){
+  var color = colorArray[indexOfColor];
   //store
-  window.localStorage.setItem("color", colorArray[indexForArray]);
+  window.localStorage.setItem("color", color);
   // Retrieve
-  document.getElementById("demo").style.backgroundColor = window.localStorage.getItem("color");
+  document.getElementById("demo").style.backgroundColor = color;
 }

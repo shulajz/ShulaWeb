@@ -17,13 +17,16 @@
 
  img {
   display: block;
-  display: none;
   margin-left: auto;
   margin-right: auto;
 }
 
-.newButton .centerOfScreen {
+ .button-to-restart-array {
   display: block;
   margin:0 auto;
   background-color: yellow;
+}
+
+.hide-element {
+  display: none;
 }
