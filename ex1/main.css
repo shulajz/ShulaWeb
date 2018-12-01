@@ -21,12 +21,8 @@
   margin-right: auto;
 }
 
- .button-to-restart-array {
+ .restart-array {
   display: block;
   margin:0 auto;
   background-color: yellow;
-}
-
-.hide-element {
-  display: none;
 }
