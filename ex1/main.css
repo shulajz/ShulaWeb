@@ -13,5 +13,15 @@
 .center .button {
   height: 50px;
   width: 80px;
-  background-color: #FF6633;
+}
+
+ img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ .restart-array {
+  display: block;
+  margin:0 auto;
+  background-color: yellow;
 }
