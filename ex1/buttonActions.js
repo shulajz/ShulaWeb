@@ -1,24 +1,27 @@
 
 const INITIAL_COLOR = 0;
+const colorArray = ['blue', 'red','orange','yellow'];
 let indexOfColor = INITIAL_COLOR;
-let colorArray = ['blue', 'red','orange', 'yellow'];
+let weGotToEndOfTheArrayFlag = false;
 
-//A function that changes the color of button on every click
-//If we got to the last color then an image will appear.
-function changeColor() {
-    let weGotToEndOfTheArrayFlag = false;
-    setButtonColor();
-    if(++indexOfColor == colorArray.length){
-      weGotToEndOfTheArrayFlag = true;
-      indexOfColor = INITIAL_COLOR;
-    }
-    handleImage(weGotToEndOfTheArrayFlag);
+function handleButtonAndImageStyles(){
+   handleButtonColor();
+   handleImageDisplay();
 }
 
-function handleImage(weGotToEndOfTheArrayFlag){
+function handleButtonColor(){
+  setButtonColor();
+  if(++indexOfColor == colorArray.length){
+    weGotToEndOfTheArrayFlag = true;
+    indexOfColor = INITIAL_COLOR;
+  }
+}
+
+function handleImageDisplay(){
   let noaImageElement = document.getElementById("noa-img");
   if(weGotToEndOfTheArrayFlag){
     noaImageElement.style.display = "block";
+    weGotToEndOfTheArrayFlag = false;
   } else {
     noaImageElement.style.display = "none";
   }
@@ -28,26 +31,20 @@ function handleImage(weGotToEndOfTheArrayFlag){
 //A function to start the array colors from the start
 function restartArray() {
   indexOfColor = INITIAL_COLOR;
-  setButtonColor();
-  document.getElementById("noa-img").style.display = "none";
-  indexOfColor++;
-
+  handleButtonAndImageStyles();
 }
 
-//A function which sets the first color of the button on start
+//A function which sets the DOM
 document.addEventListener("DOMContentLoaded", function(event) {
-  let noaImageElement = document.getElementById("noa-img");
-  noaImageElement.style.display = "none";
-  setButtonColor();
-  indexOfColor++;
+  handleButtonAndImageStyles();
 });
 
 
 function setButtonColor(){
   // setButtonColor
-  let currentButtonColor  = colorArray[indexOfColor];
+  let currentButtonColor = colorArray[indexOfColor];
   //store
-  window.localStorage.setItem('color', currentButtonColor);
+  window.localStorage.setItem("color", currentButtonColor);
   // Retrieve
-  document.getElementById("demo").style.backgroundColor = currentButtonColor;
+  document.getElementById("buttonID").style.backgroundColor = window.localStorage.getItem("color");;
 }
